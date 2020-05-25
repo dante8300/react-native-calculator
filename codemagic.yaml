@@ -10,9 +10,12 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
+      - pwd
       - npm --version
       - node --version
-      - $FCI_BUILD_DIR/npm install 
+      - cd $FCI_BUILD_DIR
+      - pwd
+      - npm install 
       - . $FCI_BUILD_DIR/android/gradlew assembleDebug
     artifacts:
       - $FCI_BUILD_DIR/app/build/outputs/apk/debug/*.apk
