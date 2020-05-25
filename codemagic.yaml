@@ -23,7 +23,9 @@ workflows:
           -keyalg 'RSA' \
           -keysize 2048 \
           -validity 10000
-      - pwd
+      - |
+        # build commands
+        pwd
         npm --version
         node --version
         cd $FCI_BUILD_DIR
