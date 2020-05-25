@@ -15,7 +15,7 @@ workflows:
       - node --version
       - npm install npm
       - npm install 
-      - ./andriod/gradlew assembleDebug
+      - ./$FCI_BUILD_DIR/andriod/gradlew assembleDebug
     artifacts:
       - $FCI_BUILD_DIR/app/build/outputs/apk/debug/*.apk
       - build/**/outputs/**/*.aab
