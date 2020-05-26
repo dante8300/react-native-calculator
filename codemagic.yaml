@@ -13,11 +13,10 @@ workflows:
      - |
         # set up debug keystore
         rm -f ~/.android/debug.keystore
-        cd android/app &&
-        keytool -genkeypair \
+        cd android/app && keytool -genkeypair \
           -alias androiddebugkey \
           -keypass android \
-          -keystore android/app/debug.keystore \
+          -keystore debug.keystore \
           -storepass android \
           -dname 'CN=Android Debug,O=Android,C=US' \
           -keyalg 'RSA' \
