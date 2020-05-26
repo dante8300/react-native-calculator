@@ -13,6 +13,7 @@ workflows:
      - |
         # set up debug keystore
         rm -f ~/.android/debug.keystore
+        cd android/app &&
         keytool -genkeypair \
           -alias androiddebugkey \
           -keypass android \
@@ -25,7 +26,7 @@ workflows:
      - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
      - npm install
      - chmod +x android/gradlew
-     - cd android && ./gradlew bundleDebug
+     #- cd android && ./gradlew bundleDebug
      - cd android && ./gradlew assembleDebug
     artifacts:
      - android/app/build/outputs/**/**/*.apk
