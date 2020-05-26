@@ -22,13 +22,12 @@ workflows:
           -keyalg 'RSA' \
           -keysize 2048 \
           -validity 10000
-      - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
-      - cd android && ./gradlew bundleDebug
-
+     - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
+     - cd android && ./gradlew bundleDebug
     artifacts:
-      - android/app/build/outputs/**/**/*.apk
-      - android/app/build/outputs/**/**/*.aab
-      - /tmp/xcodebuild_logs/*.log
+     - android/app/build/outputs/**/**/*.apk
+     - android/app/build/outputs/**/**/*.aab
+     - /tmp/xcodebuild_logs/*.log
     publishing:
       email:
         recipients:
