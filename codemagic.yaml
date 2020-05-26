@@ -29,7 +29,7 @@ workflows:
      - cd android && ./gradlew assembleDebug --no-daemon
      # run simple JEST test on RN
      - npm test
-     - 7z a -r test_results.zip coverage/*
+     #- 7z a -r test_results.zip coverage/*
     artifacts:
      - android/app/build/outputs/**/**/*.apk
      - android/app/build/outputs/**/**/*.aab
