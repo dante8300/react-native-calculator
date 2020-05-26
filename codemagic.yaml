@@ -27,10 +27,14 @@ workflows:
      - chmod +x android/gradlew
      #- cd android && ./gradlew bundleDebug
      - cd android && ./gradlew assembleDebug --no-daemon
+     # run simple JEST test on RN
+     - npm test
+     - 7z a -r test_results.zip coverage/*
     artifacts:
      - android/app/build/outputs/**/**/*.apk
      - android/app/build/outputs/**/**/*.aab
      - /tmp/xcodebuild_logs/*.log
+     - 
     publishing:
       email:
         recipients:
