@@ -11,35 +11,24 @@ workflows:
       cocoapods: default
     scripts:
      - |
-       # set up debug keystore
-       rm -f ~/.android/debug.keystore
-       cd android
-       keytool -genkeypair \
+        # set up debug keystore
+        rm -f ~/.android/debug.keystore
+        keytool -genkeypair \
           -alias androiddebugkey \
           -keypass android \
-          -keystore debug.keystore \
+          -keystore ~/.android/debug.keystore \
           -storepass android \
           -dname 'CN=Android Debug,O=Android,C=US' \
           -keyalg 'RSA' \
           -keysize 2048 \
           -validity 10000
-     - |
-       # build commands
-       pwd
-       npm --version
-       node --version
-       cd $FCI_BUILD_DIR
-       npm install 
-     - sh $FCI_BUILD_DIR/android/gradlew assembleDebug --no-daemon
+      - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
+      - cd android && ./gradlew bundleDebug
 
     artifacts:
-      - $FCI_BUILD_DIR/app/build/outputs/apk/debug/*.apk
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
-      - build/ios/ipa/*.ipa
+      - android/app/build/outputs/**/**/*.apk
+      - android/app/build/outputs/**/**/*.aab
       - /tmp/xcodebuild_logs/*.log
-      - build/web.zip
-      - flutter_drive.log
     publishing:
       email:
         recipients:
