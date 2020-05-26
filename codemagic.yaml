@@ -17,7 +17,7 @@ workflows:
         keytool -genkeypair \
           -alias androiddebugkey \
           -keypass android \
-          -keystore ~/.android/debug.keystore \
+          -keystore android/app/debug.keystore \
           -storepass android \
           -dname 'CN=Android Debug,O=Android,C=US' \
           -keyalg 'RSA' \
