@@ -26,7 +26,7 @@ workflows:
      - npm install
      - chmod +x android/gradlew
      #- cd android && ./gradlew bundleDebug
-     - cd android && ./gradlew assembleDebug
+     - cd android && ./gradlew assembleDebug --no-daemon
     artifacts:
      - android/app/build/outputs/**/**/*.apk
      - android/app/build/outputs/**/**/*.aab
