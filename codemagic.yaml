@@ -33,8 +33,7 @@ workflows:
     artifacts:
      - android/app/build/outputs/**/**/*.apk
      - android/app/build/outputs/**/**/*.aab
-     - /tmp/xcodebuild_logs/*.log
-     - 
+     - /tmp/xcodebuild_logs/*.log 
     publishing:
       email:
         recipients:
